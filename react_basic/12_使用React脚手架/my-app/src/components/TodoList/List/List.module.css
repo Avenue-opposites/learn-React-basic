@@ -1,0 +1,95 @@
+.listBox {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .item {
+    position: relative;
+    display: flex;
+    transition: background-color 0.3s;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    /* border-top: 1px solid gray;
+    border-bottom: 0px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray; */
+    border: 0.5px solid gray;
+    align-items: center;
+  }
+  .item:hover {
+    background-color: rgba(167, 162, 162, 0.518);
+  }
+  .item:hover .cancelBtn,
+  .item:hover .editBtn {
+    opacity: 1;
+  }
+  .item span {
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .itemCheckbox {
+    outline: none;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+  }
+  .doneBtn,
+  .cancelBtn,
+  .editBtn {
+    position: absolute;
+    border-radius: 5px;
+    text-align: center;
+    right: 10px;
+    width: 50px;
+    height: 30px;
+    outline: none;
+    background-color: rgb(233, 75, 75);
+    color: rgb(230, 230, 230);
+    border: 0;
+    box-shadow: 0px 2px 1px 1px rgb(196, 92, 92);
+    transition: all 0.5s;
+    /* opacity: 0; */
+  }
+  .cancelBtn:hover {
+    background-color: rgb(189, 13, 13);
+    box-shadow: 0px 2px 1px 1px rgb(143, 4, 4);
+    color: #fff;
+  }
+  .editBtn {
+    right: 70px;
+    background-color: rgb(67, 176, 209);
+    box-shadow: 0px 2px 1px 1px rgb(25, 78, 83);
+  }
+  .editBtn:hover {
+    background-color: rgb(14, 124, 172);
+    box-shadow: 0px 2px 1px 1px rgb(1, 52, 62);
+    color: #fff;
+  }
+  .doneBtn {
+    right: 70px;
+    background-color: rgb(77, 198, 105);
+    box-shadow: 0px 2px 1px 1px rgb(44, 108, 58);
+  }
+  .doneBtn:hover {
+    background-color: rgb(12, 137, 39);
+    box-shadow: 0px 2px 1px 1px rgb(2, 75, 18);
+    color: #fff;
+  }
+  .edit {
+    border-radius: 2px;
+    outline: none;
+    padding: 0 2px;
+    border: 2px solid rgb(86, 177, 216);
+    height: 20px;
+    width: auto;
+    line-height: 20px;
+  }
+  .edit:focus {
+    border: 2px rgb(77, 198, 105) solid;
+  }
+
+  .hidden {
+    display: none;
+  }

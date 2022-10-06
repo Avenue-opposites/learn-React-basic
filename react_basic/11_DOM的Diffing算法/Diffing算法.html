@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diffing算法</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- 引入核心库 -->
+  <script src="../js/react@17.development.js"></script>
+  <!-- 引入DOM库 -->
+  <script src="../js/react-dom@17.development.js"></script>
+  <script src="../js/prop-types.js"></script>
+  <script src="../js//babel.min.js"></script>
+  <script type="text/babel">
+    "use strict";
+    class Time extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                date:new Date()
+            };
+        };
+        componentDidMount() {
+            // console.log(this.state.date.toTimeString());
+            setInterval(() => {
+                this.setState({date:new Date()})
+            }, 1000);
+        };
+        render() {
+            return (
+                <div>
+                    <input type="text"/>
+                    <h2>
+                      <input type="text"/>
+                      现在时间是:{this.state.date.toTimeString()}
+                    </h2>
+                </div>
+            );
+        }
+    };
+    
+    ReactDOM.render(<Time/>, document.getElementById("root"));
+  </script>
+</html>

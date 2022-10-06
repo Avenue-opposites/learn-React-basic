@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用js语法创建虚拟DOM</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<!-- 引入核心库 -->
+<script src="../js/react@17.development.js"></script>
+<!-- 引入DOM库 -->
+<script src="../js/react-dom@17.development.js"></script>
+<script src="../js//babel.min.js"></script>
+<script type="text/javascript">
+    //使用js创建虚拟DOM
+    const virtualDOM = React.createElement("h1",{id:"title"},React.createElement("span",{},"Hello React!"));
+    //渲染虚拟DOM
+    ReactDOM.render(virtualDOM,document.getElementById("root"));
+</script>
+</html>

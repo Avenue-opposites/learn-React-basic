@@ -1,0 +1,12 @@
+.DetailBasic {
+    border-left:6px #fff solid ;
+    padding-left: 6px;
+}
+.DetailBasic ul {
+    list-style: none;
+}
+.DetailBasic ul li {
+    /* height: 30px; */
+    line-height: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}

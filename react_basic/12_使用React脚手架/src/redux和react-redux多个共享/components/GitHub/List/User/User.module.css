@@ -1,0 +1,29 @@
+.User {
+    width: 25%;
+}
+.User a {
+    margin: 10px auto;
+    width: 80%;
+    height: 160px;
+    /* border: 1px solid gray; */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5%;
+    transition: box-shadow .3s;
+}
+.User a:hover {
+    box-shadow: 2px 2px 5px 1px black;
+}
+.User a>img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.User a span {
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+    color: black;
+}

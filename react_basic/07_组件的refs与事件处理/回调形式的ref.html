@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回调形式的ref</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- 引入核心库 -->
+  <script src="../js/react@17.development.js"></script>
+  <!-- 引入DOM库 -->
+  <script src="../js/react-dom@17.development.js"></script>
+  <script src="../js/prop-types.js"></script>
+  <script src="../js//babel.min.js"></script>
+  <script type="text/babel">
+    "use strict";
+    class Demo extends React.Component {
+        constructor(props) {
+          super(props);
+          this.TextInputs = {};
+          this.setTextInput = (key,el) => {
+            this.TextInputs[key] = el;
+          }
+        }
+        render() {
+            return (
+                //回调形式
+                <div style={{margin:"100px"}}>
+                    <input ref={currentNode => {this.setTextInput("input1",currentNode)}} type="text" placeholder="点击按钮提示数据"/>
+                    <button onClick={this.showData1}>查看提示</button>
+                    <input ref={currentNode => {this.setTextInput("input2",currentNode)}}  onBlur={this.showData2} type="text" placeholder="失去焦点提示数据"/>
+                </div>
+            );
+        };
+        showData1 = () => {
+          let {input1} = this.TextInputs;
+          console.log(this);
+          alert(input1.value);
+        }
+        showData2 = () => {
+           let {input2} = this.TextInputs;
+           alert(input2.value);
+        }
+    }
+    
+    ReactDOM.render(<Demo/>, document.getElementById("root"));
+  </script>
+</html>

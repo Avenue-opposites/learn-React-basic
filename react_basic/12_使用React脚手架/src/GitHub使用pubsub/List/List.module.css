@@ -1,0 +1,11 @@
+.basic {
+    width: 80%;
+    /* border: 1px solid black; */
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    flex-flow: wrap;
+    justify-content:space-between;
+    align-content: space-between;
+    padding: 10px;
+}

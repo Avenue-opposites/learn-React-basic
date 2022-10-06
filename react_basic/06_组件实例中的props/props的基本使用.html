@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>props的基本使用</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+  </body>
+  
+  <!-- 引入核心库 -->
+  <script src="../js/react@17.development.js"></script>
+  <!-- 引入DOM库 -->
+  <script src="../js/react-dom@17.development.js"></script>
+  
+  <script src="../js//babel.min.js"></script>
+  <script type="text/babel">
+    "use strict";
+    //定义类组件
+    class Person extends React.Component {
+        render() {
+            // console.log(this);
+            const { name,sex,age } = this.props;
+            return (
+                <ul>
+                    <li>姓名：{name}</li>
+                    <li>性别：{sex}</li>
+                    <li>年龄：{age}</li>
+                </ul>
+            )
+        }
+    };
+
+    //渲染虚拟DOM
+    //props传递数据
+    ReactDOM.render(<Person name="Tom" age={20} sex="男"/>, document.getElementById("root"));
+    ReactDOM.render(<Person name="jerry" age={10} sex="女"/>, document.getElementById("root2"));
+    const data = {
+        name:"jonh",
+        age:20,
+        sex:"男"
+    };
+    //批量传递props
+    ReactDOM.render(<Person {...data}/>, document.getElementById("root3"));
+
+  </script>
+</html>

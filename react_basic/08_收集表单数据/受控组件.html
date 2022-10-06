@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>受控组件</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- 引入核心库 -->
+  <script src="../js/react@17.development.js"></script>
+  <!-- 引入DOM库 -->
+  <script src="../js/react-dom@17.development.js"></script>
+  <script src="../js/prop-types.js"></script>
+  <script src="../js//babel.min.js"></script>
+  <script type="text/babel">
+    "use strict";
+    class Login extends React.Component {
+        constructor(props) {
+          super(props);
+        
+        }
+        render() {
+            return (
+               <form  action="https://bilibili.com" onSubmit={this.handleSubmit}> 
+                    用户名：<input onChange={this.demo} ref={currentNode => {this.username = currentNode}} type="text"/>
+                    <br/>
+                    密码：<input ref={currentNode => {this.password = currentNode}} type="password"/>
+                    <br/>
+                    <button>提交</button>
+               </form>
+            );
+        };
+        handleSubmit = (e) => {
+            //取消默认行为
+            e.preventDefault();
+            const {username,password} = this;
+            console.log(username.value,password.value);
+        }
+        demo = (e) => {
+          this.setState({username:e.target.value});
+        }
+    }
+    
+    ReactDOM.render(<Login/>, document.getElementById("root"));
+  </script>
+</html>

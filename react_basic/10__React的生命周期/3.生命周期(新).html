@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生命周期(新)</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- 引入核心库 -->
+  <script src="../js/react@17.development.js"></script>
+  <!-- 引入DOM库 -->
+  <script src="../js/react-dom@17.development.js"></script>
+  <script src="../js/prop-types.js"></script>
+  <script src="../js//babel.min.js"></script>
+  <script type="text/babel">
+    "use strict";
+    class Count extends React.Component {
+        constructor(props) {
+            console.log("Count-constructor");
+            super(props);
+            this.state = {
+                n:0
+            };
+        };
+        render() {
+            console.log("Count-render");
+            return (
+                <div>
+                    <Children n={this.state.n}/>
+                    <button onClick={this.add}>增加</button>
+                    <button onClick={this.force}>强制更新</button>
+                </div>
+            );
+        };
+        // //挂载之前(弃用)
+        // UNSAFE_componentWillMount() {
+        //     console.log("Count-componentWillMount");
+        // };
+        //从props中获取派生的状态,必须返回一个state对象或者null
+        static getDerivedStateFromProps(props,state) {
+            console.log("Count-getDerivedStateFromProps",props,state);
+            if(props.step) {
+                return {n:0};
+            }else {
+                return null;
+            }
+        };
+        //挂载之后
+        componentDidMount() {
+            console.log("Count-componentDidMount");
+        };
+        //控制组件是否更新
+        shouldComponentUpdate() {
+            console.log("Count-shouldComponentUpdate");
+            return true;
+        };
+        //获取更新之前的快照
+        getSnapshotBeforeUpdate(prevProps,prevState) {
+            console.log("Count-getSnapshotBeforeUpdate",prevProps,prevState);
+            return null;
+        };
+        // //更新之前(弃用)
+        // UNSAFE_componentWillUpdate() {
+        //     console.log("Count-componentWillUpdate");
+        // };
+        //更新之后
+        componentDidUpdate(prevProps,prevState,snapshot) {
+            console.log("Count-componentDidUpdate",prevProps,prevState,snapshot);
+        };
+        //卸载之前
+        componentWillUnmount() {
+            console.log("Count-componentWillUnmount");
+        };
+        add = () => {
+            let { n } = this.state;
+            this.setState({n:++n});
+        };
+        //强制更新
+        force = () => {
+            this.forceUpdate();
+        }
+    }
+    class Children extends React.Component {
+        render() {
+            console.log("Children-render");
+            return (
+                <div>
+                    <h1>当前计数为:{this.props.n}</h1>
+                </div>
+            );
+        };
+        // //组件将要接收props时(弃用)
+        // UNSAFE_componentWillReceiveProps() {
+        //     console.log("Children-componentWillReceiveProps");
+        // };
+          //控制组件是否更新
+          shouldComponentUpdate() {
+            console.log("Children-shouldComponentUpdate");
+            return true;
+        };
+        // //更新之前(弃用)
+        // UNSAFE_componentWillUpdate() {
+        //     console.log("Children-componentWillUpdate");
+        // };
+        //更新之后
+        componentDidUpdate() {
+            console.log("Children-componentDidUpdate");
+        };
+    }
+    ReactDOM.render(<Count step={false}/>, document.getElementById("root"));
+  </script>
+</html>

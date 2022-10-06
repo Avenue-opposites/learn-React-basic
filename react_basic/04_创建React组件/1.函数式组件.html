@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数式组件</title>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<!-- 引入核心库 -->
+<script src="../js/react@17.development.js"></script>
+<!-- 引入DOM库 -->
+<script src="../js/react-dom@17.development.js"></script>
+<script src="../js//babel.min.js"></script>
+<script type="text/babel">
+    //定义函数组件
+    function MyComponent() {
+        // console.log(this);//window
+        return <h1>我是一个函数组件</h1>;
+    }
+    //渲染虚拟DOM
+    ReactDOM.render(<MyComponent/>,document.getElementById("root"));
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>类式组件</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- 引入核心库 -->
+  <script src="../js/react@17.development.js"></script>
+  <!-- 引入DOM库 -->
+  <script src="../js/react-dom@17.development.js"></script>
+  <script src="../js//babel.min.js"></script>
+  <script type="text/babel">
+    "use strict";
+    //定义类组件
+    class Weather extends React.Component {
+      constructor(props) {
+        console.log("开始new 创建实例");
+        //调用父类构造器
+        super(props);
+        //定义状态
+        this.state = {
+          isHot: true,
+          wind:"微风"
+        };
+      };
+      render() {
+        console.log("渲染页面");
+        //读取状态
+        let { isHot,wind } = this.state;
+        return (
+            //修改this指向
+          <h1 onClick={this.changeWeather.bind(this)}>
+            今天天气很{isHot ? "炎热" : "凉爽"},{wind}
+          </h1>
+        );
+      };
+      changeWeather() {
+        console.log("更改数据并更新页面");
+        //获取数据
+        let { isHot } = this.state;
+        //更新数据
+        this.setState({isHot:!isHot});
+      };
+    };
+    //渲染虚拟DOM
+    ReactDOM.render(<Weather/>, document.getElementById("root"));
+  </script>
+</html>

@@ -1,0 +1,64 @@
+/** @format */
+
+.basic {
+  width: 300px;
+  height: 500px;
+  border-radius: 20px;
+  background: #e99f9f;
+  box-shadow: 16px 16px 32px #cb8a8a, -16px -16px 32px #ffb4b4;
+  padding: 20px;
+}
+
+.basic h1 {
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+}
+.basic>div>p {
+    margin: 0;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+}
+.basic>div input {
+    width: 100%;
+    outline: none;
+    border: 2px solid rgb(249, 192, 192);
+    border-radius: 3px;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: 10px;
+    transition: border .3s;
+    background-color: #e99f9f;
+    color: white;
+}
+.basic>div input::placeholder {
+    color: rgb(235, 192, 192);
+}
+.basic>div input:hover {
+    border-color: rgb(241, 117, 164);
+}
+.basic div button {
+    display: block;
+    margin: 10px auto;
+    color: white;
+    width: 80px;
+    height: 40px;
+    background-color: #ef5c5c;
+    border: none;
+    transition: border,background-color .3s 50ms;
+}
+.basic div button:hover {
+    border: 2px solid white;
+    background-color: #960707;
+}
+.basic .show {
+    margin-top: 20px;
+}
+.basic .show ol {
+    margin: 0;
+}
+.basic .show ol li {
+    margin: 2px auto;
+    color: white;
+}
